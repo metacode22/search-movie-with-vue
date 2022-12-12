@@ -11,12 +11,6 @@
   </header>
 </template>
 
-<script>
-export default {
-  
-}
-</script>
-
 <style scoped lang="scss">
 .header {
   display: flex;

@@ -3,12 +3,6 @@
   <BackHome />
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style>
 h1 {
   color: white;

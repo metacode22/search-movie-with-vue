@@ -42,12 +42,6 @@ export default {
   },
   async mounted() {
     this.isLoading = true
-    // const query = new URLSearchParams({
-    //   apiKey: API_KEY,
-    //   i: this.movieId,
-    //   plot: 'short'
-    // }).toString()
-    // const nextMovieDetail = await this.$fetch(`${BASE_URL}?${query}`)
     const nextMovieDetail = await request({
       method: 'GET',
       params: {
