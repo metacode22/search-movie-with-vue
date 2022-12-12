@@ -3,4 +3,3 @@ dist/
 .vscode/
 .idea/
 .DS_Store
-src/constants/api.js
