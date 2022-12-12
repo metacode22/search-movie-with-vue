@@ -11,7 +11,7 @@
 
 <script>
 import { MovieList, SearchBar, Observer } from '~/components/home'
-import { BASE_URL, API_KEY } from '~/constants/api'
+import request from '~/utils/request'
 
 export default {
   components: {
@@ -43,12 +43,13 @@ export default {
       })
       this.isLoading = true
       this.currentPage = 1
-      const query = new URLSearchParams({
-        apiKey: API_KEY,
-        s: this.currentTitleText,
-        page: this.currentPage
-      }).toString()
-      const { Search: initMovies, totalResults, Response } = await this.$fetch(`${BASE_URL}?${query}`)
+      const { Search: initMovies, totalResults, Response } = await request({
+        method: 'GET',
+        params: {
+          s: this.currentTitleText,
+          page: this.currentPage
+        }
+      })
       if (Response === 'False') alert('해당 검색어의 영화를 찾지 못했습니다.')
       else {
         this.$store.commit('movies/updateCurrentMovieTitle', this.currentTitleText)
@@ -68,15 +69,15 @@ export default {
         this.isAllRendered = true
         return
       }
-      
       this.currentPage += 1
       this.isLoading = true
-      const query = new URLSearchParams({
-        apiKey: API_KEY,
-        s: this.$store.state.movies.currentMovieTitle,
-        page: this.currentPage
+      const { Search: nextMovies} = await request({
+        method: 'GET',
+        params: {
+          s: this.$store.state.movies.currentMovieTitle,
+          page: this.currentPage
+        }
       })
-      const { Search: nextMovies } = await this.$fetch(`${BASE_URL}?${query}`)
       this.$store.commit('movies/loadMoreMovies', nextMovies)
       this.isLoading = false
     },

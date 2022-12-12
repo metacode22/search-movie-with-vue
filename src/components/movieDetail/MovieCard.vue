@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import { BASE_URL, API_KEY } from '~/constants/api'
 import DEFAULT_IMAGE from '~/constants/defaultImage'
+import request from '~/utils/request'
 
 export default {
   props: {
@@ -42,13 +42,19 @@ export default {
   },
   async mounted() {
     this.isLoading = true
-    const query = new URLSearchParams({
-      apiKey: API_KEY,
-      i: this.movieId,
-      plot: 'short'
-    }).toString()
-    const nextMovieDetail = await this.$fetch(`${BASE_URL}?${query}`)
-    
+    // const query = new URLSearchParams({
+    //   apiKey: API_KEY,
+    //   i: this.movieId,
+    //   plot: 'short'
+    // }).toString()
+    // const nextMovieDetail = await this.$fetch(`${BASE_URL}?${query}`)
+    const nextMovieDetail = await request({
+      method: 'GET',
+      params: {
+        i: this.movieId,
+        plot: 'short',  
+      }
+    })
     if (nextMovieDetail.Response === 'False') this.$router.replace({ name: 'notFound' })
     else {
       this.movieDetail = nextMovieDetail
