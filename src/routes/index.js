@@ -5,7 +5,13 @@ import NotFound from './NotFound'
 
 export default createRouter({
   history: createWebHistory(),
-  scrollBehavior: () => ({ top: 0, behavior: 'smooth' }),
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0, behavior: 'smooth' }
+    }
+  },
   routes: [
     {
       path: '/',

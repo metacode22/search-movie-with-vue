@@ -2,7 +2,8 @@
   <li
     class="movie-list-item-container"
     @click="$router.push({ name: 'movieDetail', params: {
-      id: movie.imdbID
+      id: movie.imdbID,
+      isEnteredByMovieListItem: true
     }})">
     <img
       class="movie-poster"

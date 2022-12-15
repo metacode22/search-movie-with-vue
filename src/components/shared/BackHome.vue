@@ -2,7 +2,7 @@
   <header class="header">
     <button
       class="back-button"
-      @click="$router.push({ name: 'home' })">
+      @click="isEnteredByMovieListItem ? $router.go(-1) : $router.push({ name: 'home' })">
       &lt;
     </button>
     <h1 class="back-text">
@@ -10,6 +10,17 @@
     </h1>
   </header>
 </template>
+
+<script>
+export default {
+  props: {
+    isEnteredByMovieListItem: {
+      type: Boolean,
+      default: false
+    }
+  }
+}
+</script>
 
 <style scoped lang="scss">
 .header {
