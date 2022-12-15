@@ -1,5 +1,6 @@
 <template>
-  <BackHome :is-entered-by-movie-list-item="$route.params.isEnteredByMovieListItem" />
+  <BackHome
+    :is-entered-by-movie-list-item="isEnteredByMovieListItem" />
   <MovieCard :movie-id="$route.params.id" />
 </template>
 
@@ -8,7 +9,13 @@ import { MovieCard } from '~/components/movieDetail'
 
 export default {
   components: {
-    MovieCard
+    MovieCard,
+  },
+  data() {
+    return {
+      isEnteredByMovieListItem:
+        this.$route.params.isEnteredByMovieListItem === 'true',
+    }
   },
 }
 </script>

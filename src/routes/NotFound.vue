@@ -1,6 +1,6 @@
 <template>
-  <h1>Not Found. 404 Error</h1>
   <BackHome />
+  <h1>Not Found. 404 Error</h1>
 </template>
 
 <style>
