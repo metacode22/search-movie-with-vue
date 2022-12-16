@@ -35,7 +35,7 @@ export default {
 
 <style scoped lang='scss'>
 .header {
-  width: 100%;
+  width: 360px;
   color: white;
   display: flex;
   flex-direction: column;
