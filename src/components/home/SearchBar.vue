@@ -35,7 +35,6 @@ export default {
 
 <style scoped lang='scss'>
 .header {
-  width: 360px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -43,7 +42,7 @@ export default {
   align-items: center;
   
   h1 {
-    width: 360px;
+    font-size: 1.5rem;
   }
   
   .form {

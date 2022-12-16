@@ -35,6 +35,6 @@ ul {
 }
 
 .inner-container {
-  /* max-width: 360px; */
+  max-width: 360px;
 }
 </style>
