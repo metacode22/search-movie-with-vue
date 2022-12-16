@@ -42,6 +42,10 @@ export default {
   justify-content: center;
   align-items: center;
   
+  h1 {
+    width: 360px;
+  }
+  
   .form {
     background-color: white;
     width: 100%;
